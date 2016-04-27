@@ -113,6 +113,22 @@ def get_grades_by_title(title):
         print "Student %s received grade of %s for project %s" % (
             row[0], row[1], title)
     return rows
+def get_all_students():
+    QUERY = """
+        SELECT *
+        FROM Students"""
+    db_cursor = db.session.execute(QUERY)
+    rows = db_cursor.fetchall()
+    return rows
+
+def get_all_projects():
+    QUERY = """
+        SELECT *
+        FROM Projects"""
+    db_cursor = db.session.execute(QUERY)
+    rows = db_cursor.fetchall()
+    return rows
+
 
 
 def handle_input():
